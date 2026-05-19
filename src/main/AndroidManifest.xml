@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:label="Example Plugin"
+        android:allowBackup="false">
+
+        <!--
+            Every MondoNode plugin must declare its service with:
+              - the PLUGIN intent action (so the host can discover it)
+              - android:exported="true" (so the host can bind across processes)
+              - android:permission set to a signature-level permission (recommended)
+        -->
+        <service
+            android:name=".ExamplePluginService"
+            android:exported="true"
+            android:permission="com.systemhalted.mondonode.BIND_PLUGIN">
+            <intent-filter>
+                <action android:name="com.systemhalted.mondonode.PLUGIN" />
+            </intent-filter>
+        </service>
+
+
+        <activity
+            android:name=".AboutActivity"
+            android:label="About"
+            android:exported="false" />
+
+    </application>
+
+</manifest>
